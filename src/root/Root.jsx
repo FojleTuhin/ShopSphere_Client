@@ -1,10 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../shared/Navbar";
 
 const Root = () => {
+    const location = useLocation()
+    const isLogin = location.pathname.includes('login') || location.pathname.includes('signUp');
     return (
-        <div className="max-w-6xl mx-auto pt-5 p-2">
-            <Navbar></Navbar>
+        <div className="">
+            {isLogin || <Navbar></Navbar>}
             <Outlet></Outlet>
         </div>
     );

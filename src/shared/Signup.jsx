@@ -7,7 +7,7 @@ const Signup = () => {
               <div className="hero min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/BB6BQ7f/authentication.png)` }}>
                 <div className="lg:flex lg:flex-row-reverse w-[80%] m-auto shadow-2xl shadow-gray-500 py-8 px-4 lg:px-24 gap-20">
                     <div className="lg:w-[50%] flex justify-center items-center">
-                        <img src="https://i.ibb.co/D9bVMK9/authentication2.png" alt="" />
+                        <Link to='/'><img src="https://i.ibb.co/D9bVMK9/authentication2.png" alt="" /></Link>
                     </div>
                     <div className="lg:w-[50%]">
                         <p className="text-2xl font-bold text-center mt-8 mb-8">Sign Up</p>

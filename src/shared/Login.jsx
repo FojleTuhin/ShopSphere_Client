@@ -7,7 +7,7 @@ const Login = () => {
             <div className="hero min-h-screen pt-12" style={{ backgroundImage: `url(https://i.ibb.co/BB6BQ7f/authentication.png)` }}>
                 <div className="lg:flex w-[80%] m-auto items-center justify-center shadow-2xl shadow-gray-500 py-8 px-4 lg:px-24 gap-20">
                     <div className="lg:w-[50%] flex justify-center items-center">
-                        <img src="https://i.ibb.co/D9bVMK9/authentication2.png" alt="" />
+                    <Link to='/'><img src="https://i.ibb.co/D9bVMK9/authentication2.png" alt="" /></Link>
                     </div>
                     <div className="lg:w-[50%]">
                         <p className="text-2xl font-bold text-center my-8">Login</p>
