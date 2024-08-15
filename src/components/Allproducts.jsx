@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Card from "./Card";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Allproducts = () => {
     const [search, setSearch] = useState('');
@@ -8,6 +10,19 @@ const Allproducts = () => {
     const [sort, setSort] = useState('');
     const [date, setDate] = useState('');
 
+    const axiosPublic = useAxiosPublic();
+
+
+    const { data: Allproducts = [] } = useQuery({
+        queryKey: ['Allproducts'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/products');
+            return res.data;
+        }
+    })
+
+    console.log(Allproducts);
+
     const product={
         search,
         brand,
@@ -15,7 +30,9 @@ const Allproducts = () => {
         sort,
         date
     }
-    console.log(product);
+
+
+
     return (
         <div>
             <div className="my-2 bg-[#f2f2f2]">
@@ -108,10 +125,9 @@ const Allproducts = () => {
 
 
             <div className="flex flex-wrap justify-evenly py-10 mt-4 mb-10 bg-[#f2f2f2]">
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
+            {
+                Allproducts.map(product=> <Card key={product._id} product={product}></Card>)
+            }
             </div>
         </div>
     );

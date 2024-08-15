@@ -1,20 +1,21 @@
 import { FaRegStar } from "react-icons/fa";
 
-const Card = () => {
+const Card = ({product}) => {
+    const {price,brandName,ratings,category,description,productName,productImage} = product;
     return (
         <div className="w-[300px] h-[400px] mt-5 bg-white">
             <div className="h-[180px] bg-cover relative">
-                <img className="" src="https://i.ibb.co/FV85h0q/macbook-air-13inch-m1-2020-8-64369a0ba97c4514b9446bdfe25be55d-grande.webp" alt="" />
+                <img className="h-[180px] w-full bg-cover" src={productImage} alt="" />
 
-                <span className="bg-black px-4 py-3 text-white absolute top-2 right-2">$2000</span>
+                <span className="bg-black px-4 py-3 text-white absolute top-2 right-2">${price}</span>
             </div>
             <div className="px-4">
-                <p className="text-center mt-2 font-bold"> Apple</p>
+                <p className="text-center mt-2 font-bold"> {productName}</p>
                 <div className="flex justify-between items-center font-bold py-2">
-                    <span>Category: Premium</span><span className="flex items-center gap-2"><FaRegStar />4.9</span>
+                    <span>Brand: {brandName}</span><span className="flex items-center gap-2"><FaRegStar />{ratings}</span>
                 </div>
 
-                <p className="mb-4">Cost-effective laptop with a 15.6-inch display, suitable for everyday use</p>
+                <p className="mb-4">{description}</p>
                 <div className="flex justify-center">
                     <button className="bg-[#fceae8] px-6 p-4  border-b-[#FF136F] border-b-2 rounded-lg">Add to cart</button>
                 </div>
