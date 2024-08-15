@@ -1,6 +1,7 @@
 import { BsCart3 } from "react-icons/bs";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import logo from '../assets/1.jpg'
 
 const Navbar = () => {
 
@@ -41,7 +42,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className=""><img className="w-10 rounded-full" src="https://i.ibb.co/VN7QC7q/Purple-Yellow-Illustrative-E-Commerce-Online-Shop-Logo.jpg" alt="" /></a>
+                    <a className=""><img className="w-14 rounded-full" src={logo} alt="" /></a>
                     <p className="ml-2 font-bold md:text-2xl">ShopSphere</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
