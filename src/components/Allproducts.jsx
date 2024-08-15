@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "./Card";
 
 const Allproducts = () => {
     const [search, setSearch] = useState('');
@@ -100,6 +101,17 @@ const Allproducts = () => {
                         </select>
                     </span>
                 </div>
+            </div>
+            <div className="my-2 bg-[#f2f2f2]">
+                <p className="px-3 py-2 font-bold">Best Laptop for you</p>
+            </div>
+
+
+            <div className="flex flex-wrap justify-evenly py-10 mt-4 mb-10 bg-[#f2f2f2]">
+                <Card></Card>
+                <Card></Card>
+                <Card></Card>
+                <Card></Card>
             </div>
         </div>
     );

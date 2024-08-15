@@ -12,7 +12,7 @@ const BannerCarousel = () => {
                     <div className='bg-[#fceae8] px-20 py-10 rounded-lg'>
                         <div className='flex items-center'>
                             <div>
-                                <h1 className='font-bold text-4xl'>Walton LED Tv</h1>
+                                <h1 className='font-bold text-4xl'>Walton LED Monitor</h1>
                                 <p className='py-3'>Upgrade Your Home Theater: Discover the Perfect TV for an Immersive Viewing Experience</p>
                                 <h2 className='text-[#FF136F] mb-3 text-3xl font-bold'>1200$</h2>
                                 <button className='bg-gradient-to-r from-[#FF589B] to-[#FF136F] text-white rounded-lg py-2 px-6'>Buy now</button>
