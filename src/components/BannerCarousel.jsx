@@ -13,7 +13,7 @@ const BannerCarousel = () => {
                         <div className='flex items-center'>
                             <div>
                                 <h1 className='font-bold text-4xl'>Walton LED Tv</h1>
-                                <p className='py-3'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, sint iure numquam minus exercitationem maiores. Modi rerum voluptate cupiditate vitae.</p>
+                                <p className='py-3'>Upgrade Your Home Theater: Discover the Perfect TV for an Immersive Viewing Experience</p>
                                 <h2 className='text-[#FF136F] mb-3 text-3xl font-bold'>1200$</h2>
                                 <button className='bg-gradient-to-r from-[#FF589B] to-[#FF136F] text-white rounded-lg py-2 px-6'>Buy now</button>
                                 
@@ -35,7 +35,7 @@ const BannerCarousel = () => {
                         <div className='flex items-center'>
                             <div>
                                 <h1 className='font-bold text-4xl'>Walton headphone</h1>
-                                <p className='py-3'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, sint iure numquam minus exercitationem maiores. Modi rerum voluptate cupiditate vitae.</p>
+                                <p className='py-3'>Immerse Yourself in Sound: Find the Perfect Headphones for an Unmatched Audio Experience</p>
                                 <h2 className='text-[#FF136F] mb-3 text-3xl font-bold'>1200$</h2>
                                 <button className='bg-gradient-to-r from-[#FF589B] to-[#FF136F] text-white rounded-lg py-2 px-6'>Buy now</button>
                                 
@@ -57,7 +57,7 @@ const BannerCarousel = () => {
                         <div className='flex items-center'>
                             <div>
                                 <h1 className='font-bold text-4xl'>X-box for your living room</h1>
-                                <p className='py-3'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, sint iure numquam minus exercitationem maiores. Modi rerum voluptate cupiditate vitae.</p>
+                                <p className='py-3'>Elevate Your Entertainment: Transform Your Living Room into the Ultimate X-Box Gaming Hub</p>
                                 <h2 className='text-[#FF136F] mb-3 text-3xl font-bold'>1200$</h2>
                                 <button className='bg-gradient-to-r from-[#FF589B] to-[#FF136F] text-white rounded-lg py-2 px-6'>Buy now</button>
                                 
