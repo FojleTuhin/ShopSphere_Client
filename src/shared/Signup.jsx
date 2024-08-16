@@ -1,18 +1,107 @@
-import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { FaGoogle } from "react-icons/fa6";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../firebase/FirebaseProvider";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const Signup = () => {
+
+
+
+    const { createUser, googleLogin } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
+
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully login",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Password or email don't match!",
+                });
+            })
+
+
+    }
+
+
+
+
+    const handleLSignIn = (e) => {
+        e.preventDefault()
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const photo = e.target.photo.value;
+
+
+
+        if (password.length < 6) {
+            toast.error("Password must be 6 characters.");
+            return
+        }
+
+
+
+
+
+
+        else (
+            toast.success('Successfully Sign in!')
+
+        )
+
+        createUser(email, password)
+            .then(result => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully login",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                navigate(location?.state ? location.state : '/')
+
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+    }
+
+
+
     return (
         <div>
-              <div className="hero min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/BB6BQ7f/authentication.png)` }}>
+           
+            <div className="hero min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/BB6BQ7f/authentication.png)` }}>
                 <div className="lg:flex lg:flex-row-reverse w-[80%] m-auto shadow-2xl shadow-gray-500 py-8 px-4 lg:px-24 gap-20">
                     <div className="lg:w-[50%] flex justify-center items-center">
-                        <Link to='/'><img src="https://i.ibb.co/D9bVMK9/authentication2.png" alt="" /></Link>
+                        <img src="https://i.ibb.co/ww94K10/authentication1-1.png" alt="" />
                     </div>
                     <div className="lg:w-[50%]">
                         <p className="text-2xl font-bold text-center mt-8 mb-8">Sign Up</p>
 
-                        <form>
+                        <form onSubmit={handleLSignIn}>
                             <div className="w-full mb-4">
                                 <label >
                                     <p className="text-[#444444] font-semibold mb-2">Name</p>
@@ -49,7 +138,7 @@ const Signup = () => {
                         <p className="font-medium  text-center mb-3">Or sign up with</p>
                         <div className="flex justify-evenly">
 
-                            <button><FaGoogle className="text-2xl" /></button>
+                            <button><FaGoogle onClick={handleGoogleLogin} className="text-2xl" /></button>
 
                         </div>
 

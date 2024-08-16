@@ -7,6 +7,7 @@ import Home from './home/Home';
 import Login from './shared/Login';
 import Signup from './shared/Signup';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import FirebaseProvider from './firebase/FirebaseProvider';
 
 const queryClient = new QueryClient()
 
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
+      <FirebaseProvider>
+      <RouterProvider router={router} />
+      </FirebaseProvider>
     </QueryClientProvider>
   </StrictMode>,
 )

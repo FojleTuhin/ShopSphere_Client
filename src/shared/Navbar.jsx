@@ -2,11 +2,15 @@ import { BsCart3 } from "react-icons/bs";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import logo from '../assets/1.jpg'
+import { AuthContext } from "../firebase/FirebaseProvider";
+import { useContext } from "react";
 // import { useQuery } from "@tanstack/react-query";
 // import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
     const links = <>
         <li><a href=""><Link to='/'>Home</Link></a></li>
         <li><a href="">About us</a></li>
@@ -16,15 +20,25 @@ const Navbar = () => {
         <li><a href="">Contact</a></li>
 
     </>
-// const axiosPublic = useAxiosPublic();
+    // const axiosPublic = useAxiosPublic();
 
-// const { data: cart = [], refetch } = useQuery({
-//     queryKey: ['cart'],
-//     queryFn: async () => {
-//         const res = await axiosPublic.get('/cart');
-//         return res.data;
-//     }
-// })
+    // const { data: cart = [], refetch } = useQuery({
+    //     queryKey: ['cart'],
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get('/cart');
+    //         return res.data;
+    //     }
+    // })
+    const handleSignOut = () => {
+
+        logOut()
+            .then(result => {
+                console.log(result);
+            })
+            .catch()
+
+
+    }
 
 
 
@@ -63,7 +77,12 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end flex gap-5">
                     <span className="flex"><BsCart3 className="text-2xl" /><sup>+5</sup></span>
-                    <Link to='/login'> <IoPersonAddOutline className="text-2xl" /></Link>
+                    {
+                        user ?
+                            <button onClick={handleSignOut}>Logout</button>
+                            :
+                            <Link to='/login'> <IoPersonAddOutline className="text-2xl" /></Link>
+                    }
                 </div>
             </div>
         </div>
