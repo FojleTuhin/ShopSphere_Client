@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import logo from '../assets/1.jpg'
 import { AuthContext } from "../firebase/FirebaseProvider";
 import { useContext } from "react";
-// import { useQuery } from "@tanstack/react-query";
-// import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
 
@@ -20,15 +20,17 @@ const Navbar = () => {
         <li><a href="">Contact</a></li>
 
     </>
-    // const axiosPublic = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
+    const email = user?.email;
 
-    // const { data: cart = [], refetch } = useQuery({
-    //     queryKey: ['cart'],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get('/cart');
-    //         return res.data;
-    //     }
-    // })
+    const { data: cart = [], refetch } = useQuery({
+        queryKey: ['cart', email],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/cart/${email}`);
+            return res.data;
+        }
+    })
+    console.log(cart.length);
     const handleSignOut = () => {
 
         logOut()
@@ -76,7 +78,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-5">
-                    <span className="flex"><BsCart3 className="text-2xl" /><sup>+5</sup></span>
+                    <span className="flex"><BsCart3 className="text-2xl" /><sup>+{cart.length}</sup></span>
                     {
                         user ?
                             <button onClick={handleSignOut}>Logout</button>

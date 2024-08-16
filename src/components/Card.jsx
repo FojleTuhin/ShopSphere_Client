@@ -3,7 +3,6 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../firebase/FirebaseProvider";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Card = ({ product }) => {
