@@ -96,16 +96,14 @@ const Allproducts = () => {
 
                             className="select text-black border-gray-500" name="category" id='category' value={category}>
                             <option disabled selected> Category</option>
-                            <option>Portable Devices</option>
-                            <option>Gaming</option>
-                            <option>Office</option>
                             <option>Convertible</option>
-                            <option>Education</option>
-                            <option>Premium</option>
+                            <option>Ultrabook</option>
                             <option>Budget</option>
-                            <option>Ultra Slim</option>
-                            <option>Workstation</option>
-                            <option>Economy</option>
+                            <option>Gaming</option>
+                            <option>Business</option>
+                            <option>Professional</option>
+                            <option>Budget</option>
+                            
                         </select>
                     </span>
                 </div>
