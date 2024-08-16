@@ -40,11 +40,11 @@ const Allproducts = () => {
 
     return (
         <div>
-            <div className="my-2 bg-[#f2f2f2] md:flex justify-between items-center">
+            <div className="my-2 bg-[#f2f2f2] lg:flex justify-between items-center">
                 <p className="px-3 py-2 font-bold text-center">Laptop Price in Bangladesh</p>
 
 
-                <div className="md:flex gap-5 items-center py-2">
+                <div className="md:flex gap-5 items-center justify-center py-2">
                     <p className="font-bold text-center mb-2 md:mb-0">Price Range</p>
                     <div className="flex items-center gap-2 py-2 md:py-0 justify-center">
                         <span >Min: </span>
