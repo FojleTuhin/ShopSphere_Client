@@ -9,8 +9,8 @@ const BannerCarousel = () => {
         <div>
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <div className='bg-[#fceae8] px-20 py-10 rounded-lg'>
-                        <div className='flex items-center'>
+                    <div className='bg-[#fceae8] p-4 md:px-20 md:py-10 rounded-lg'>
+                        <div className='md:flex items-center'>
                             <div>
                                 <h1 className='font-bold text-4xl'>Walton LED Monitor</h1>
                                 <p className='py-3'>Upgrade Your Home Theater: Discover the Perfect TV for an Immersive Viewing Experience</p>
@@ -31,8 +31,8 @@ const BannerCarousel = () => {
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
-                <div className='bg-[#fceae8] px-20 py-10 rounded-lg'>
-                        <div className='flex items-center'>
+                <div className='bg-[#fceae8] p-4 md:px-20 md:py-10 rounded-lg'>
+                        <div className='md:flex items-center'>
                             <div>
                                 <h1 className='font-bold text-4xl'>Walton headphone</h1>
                                 <p className='py-3'>Immerse Yourself in Sound: Find the Perfect Headphones for an Unmatched Audio Experience</p>
@@ -53,8 +53,8 @@ const BannerCarousel = () => {
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
-                <div className='bg-[#fceae8] px-20 py-10 rounded-lg'>
-                        <div className='flex items-center'>
+                <div className='bg-[#fceae8] p-4 md:px-20 md:py-10 rounded-lg'>
+                        <div className='md:flex items-center'>
                             <div>
                                 <h1 className='font-bold text-4xl'>X-box for your living room</h1>
                                 <p className='py-3'>Elevate Your Entertainment: Transform Your Living Room into the Ultimate X-Box Gaming Hub</p>

@@ -126,14 +126,14 @@ const Allproducts = () => {
             </div>
 
 
-            <div className="flex flex-wrap justify-evenly py-10 mt-4 mb-10 bg-[#f2f2f2]">
+            <div className="flex flex-wrap justify-evenly py-10 mt-4 mb-5 bg-[#f2f2f2]">
                 {
                     allProducts.map(product => <Card key={product._id} product={product}></Card>)
                 }
             </div>
 
 
-            <div className="flex gap-10 justify-center">
+            <div className="flex gap-10 justify-center bg-[#f2f2f2] py-2">
                 <button disabled={currentPage <= 1} onClick={() => setPage(page - 1)}>Previous </button>
                 <span> Page {currentPage} of {totalPages}</span>
                 <button disabled={currentPage >= totalPages} onClick={() => setPage(page + 1)}> Next</button>
