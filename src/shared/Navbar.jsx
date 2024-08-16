@@ -2,6 +2,8 @@ import { BsCart3 } from "react-icons/bs";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import logo from '../assets/1.jpg'
+// import { useQuery } from "@tanstack/react-query";
+// import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Navbar = () => {
 
@@ -14,6 +16,15 @@ const Navbar = () => {
         <li><a href="">Contact</a></li>
 
     </>
+// const axiosPublic = useAxiosPublic();
+
+// const { data: cart = [], refetch } = useQuery({
+//     queryKey: ['cart'],
+//     queryFn: async () => {
+//         const res = await axiosPublic.get('/cart');
+//         return res.data;
+//     }
+// })
 
 
 
