@@ -1,14 +1,44 @@
 import { FaRegStar } from "react-icons/fa";
 import useAxiosPublic from "../hooks/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../firebase/FirebaseProvider";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
-const Card = ({product}) => {
+const Card = ({ product }) => {
 
-    const {price,brandName,ratings,category,description,productName,productImage,_id} = product;
-    const axiosPublic= useAxiosPublic();
+    const { price, brandName, ratings, category, description, productName, productImage, _id } = product;
+    const axiosPublic = useAxiosPublic();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const email = user?.email;
 
-    const handleAddToCart=(id)=>{
-        axiosPublic.post(`/addToCart/${id}`)
-        .then(data=>console.log(data));
+
+    const handleAddToCart = (product) => {
+        const { price, brandName, ratings, category, description, productName, productImage, _id } = product;
+
+        const newCart={
+            price, brandName, ratings, category, description, productName, productImage, _id,email
+        }
+
+        if (!user) {
+            return navigate('/login')
+        }
+        axiosPublic.post('/addToCart', newCart)
+            .then(data => {
+                if (data.status === 200) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "product added in chart",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            });
+            
+            
     }
 
     return (
@@ -26,7 +56,7 @@ const Card = ({product}) => {
 
                 <p className="mb-4">{description}</p>
                 <div className="flex justify-center">
-                    <button onClick={()=>handleAddToCart(_id)} className="bg-[#fceae8] px-6 p-4  border-b-[#FF136F] border-b-2 rounded-lg">Add to cart</button>
+                    <button onClick={() => handleAddToCart(product)} className="bg-[#fceae8] px-6 p-4  border-b-[#FF136F] border-b-2 rounded-lg">Add to cart</button>
                 </div>
             </div>
         </div>
