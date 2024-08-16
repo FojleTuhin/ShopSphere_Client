@@ -32,7 +32,7 @@ const Allproducts = () => {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center h-[500px]">
                 <span className="loading loading-bars loading-xs"></span>
                 <span className="loading loading-bars loading-sm"></span>
                 <span className="loading loading-bars loading-md"></span>
