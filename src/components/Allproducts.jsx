@@ -17,7 +17,7 @@ const Allproducts = () => {
 
 
 
-    const { data: {allProducts = [], totalPages, currentPage} ={}, isLoading } = useQuery({
+    const { data: { allProducts = [], totalPages, currentPage } = {}, isLoading } = useQuery({
         queryKey: ['allProducts', search, brand, category, sort, page, minPrice, maxPrice],
         queryFn: async () => {
             const res = await axiosPublic.get(`/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${page}&minPrice=${minPrice}&maxPrice=${maxPrice}`);
@@ -25,13 +25,20 @@ const Allproducts = () => {
         }
     });
 
-   
 
 
 
 
-    if(isLoading){
-        return<p>Loading...............</p>
+
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center">
+                <span className="loading loading-bars loading-xs"></span>
+                <span className="loading loading-bars loading-sm"></span>
+                <span className="loading loading-bars loading-md"></span>
+                <span className="loading loading-bars loading-lg"></span>
+            </div>
+        )
     }
 
 
