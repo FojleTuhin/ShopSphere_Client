@@ -1,7 +1,16 @@
 import { FaRegStar } from "react-icons/fa";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Card = ({product}) => {
-    const {price,brandName,ratings,category,description,productName,productImage} = product;
+
+    const {price,brandName,ratings,category,description,productName,productImage,_id} = product;
+    const axiosPublic= useAxiosPublic();
+
+    const handleAddToCart=(id)=>{
+        axiosPublic.post(`/addToCart/${id}`)
+        .then(data=>console.log(data));
+    }
+
     return (
         <div className="w-[300px] h-[400px] mt-5 bg-white">
             <div className="h-[180px] bg-cover relative">
@@ -17,7 +26,7 @@ const Card = ({product}) => {
 
                 <p className="mb-4">{description}</p>
                 <div className="flex justify-center">
-                    <button className="bg-[#fceae8] px-6 p-4  border-b-[#FF136F] border-b-2 rounded-lg">Add to cart</button>
+                    <button onClick={()=>handleAddToCart(_id)} className="bg-[#fceae8] px-6 p-4  border-b-[#FF136F] border-b-2 rounded-lg">Add to cart</button>
                 </div>
             </div>
         </div>
