@@ -8,7 +8,6 @@ const Allproducts = () => {
     const [brand, setBrand] = useState('');
     const [category, setCategory] = useState('');
     const [sort, setSort] = useState('');
-    const [date, setDate] = useState('');
     const [page, setPage] = useState(1);
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
@@ -16,39 +15,26 @@ const Allproducts = () => {
     const axiosPublic = useAxiosPublic();
 
 
-    const { data: Allproducts = [] } = useQuery({
-        queryKey: ['Allproducts', search, brand, category, sort, page, minPrice, maxPrice],
+
+
+    const { data: {allProducts = [], totalPages, currentPage} ={}, isLoading } = useQuery({
+        queryKey: ['allProducts', search, brand, category, sort, page, minPrice, maxPrice],
         queryFn: async () => {
-            const res = await axiosPublic.get('/products', {
-                params: {
-                    search,
-                    brand,
-                    category,
-                    sort,
-                    page,
-                    minPrice,
-                    maxPrice,
-                }
-            });
+            const res = await axiosPublic.get(`/products?search=${search}&brand=${brand}&category=${category}&sort=${sort}&page=${page}&minPrice=${minPrice}&maxPrice=${maxPrice}`);
             return res.data;
         }
-    })
+    });
+
+   
 
 
-    const product = {
-        search,
-        brand,
-        category,
-        sort,
-        date,
-        page,
-        minPrice,
-        maxPrice
+
+
+    if(isLoading){
+        return<p>Loading...............</p>
     }
 
 
-
-    const { products, totalPages, currentPage } = Allproducts;
 
 
 
@@ -84,16 +70,13 @@ const Allproducts = () => {
 
                             className="select text-black border-gray-500" name="category" id='category' value={brand}>
                             <option disabled selected> Brand</option>
-                            <option>TechSlim</option>
-                            <option>GameForce</option>
-                            <option>ProBook</option>
-                            <option>FlexTech</option>
-                            <option>EduBook</option>
+                            <option>Dell</option>
+                            <option>Acer</option>
+                            <option>Lenovo</option>
+                            <option>Asus</option>
+                            <option>Walton</option>
                             <option>Apple</option>
-                            <option>ChromeTech</option>
-                            <option>UltraLite</option>
-                            <option>WorkPro</option>
-                            <option>BudgetTech</option>
+                            <option>HP</option>
                         </select>
                     </span>
                 </div>
@@ -105,7 +88,7 @@ const Allproducts = () => {
                             onChange={e => setCategory(e.target.value)}
 
                             className="select text-black border-gray-500" name="category" id='category' value={category}>
-                            <option disabled selected> Category</option>
+                            <option > Category</option>
                             <option>Portable Devices</option>
                             <option>Gaming</option>
                             <option>Office</option>
@@ -124,15 +107,7 @@ const Allproducts = () => {
                 <div className="flex justify-center items-center gap-2">
                     <span>Sort:</span>
                     <span>
-                        {/* <select
-                            onChange={e => setSort(e.target.value)}
 
-                            className="select text-black border-gray-500" name="category" id='category' value={sort}>
-                            <option disabled selected> Price</option>
-                            <option>Low to high</option>
-                            <option>High to low</option>
-
-                        </select> */}
 
                         <select className="select text-black border-gray-500" name="category" id='category' onChange={(e) => setSort(e.target.value)}>
                             <option value="">Sort by</option>
@@ -144,20 +119,7 @@ const Allproducts = () => {
                     </span>
                 </div>
 
-                {/* <div className="flex justify-center items-center gap-2">
-                    <span>Date</span>
-                    <span>
-                        <select
-                            onChange={e => setDate(e.target.value)}
 
-                            className="select text-black border-gray-500" name="category" id='category' value={date}>
-                            <option disabled selected> Price</option>
-                            <option>Regular</option>
-                            <option>Newest</option>
-
-                        </select>
-                    </span>
-                </div> */}
             </div>
             <div className="my-2 bg-[#f2f2f2]">
                 <p className="px-3 py-2 font-bold">Best Laptop for you</p>
@@ -166,15 +128,15 @@ const Allproducts = () => {
 
             <div className="flex flex-wrap justify-evenly py-10 mt-4 mb-10 bg-[#f2f2f2]">
                 {
-                    Allproducts.map(product => <Card key={product._id} product={product}></Card>)
+                    allProducts.map(product => <Card key={product._id} product={product}></Card>)
                 }
             </div>
 
 
-            <div className="flex justify-center">
-                <button disabled={currentPage <= 1} onClick={() => setPage(page - 1)}>Previous</button>
-                <span>Page {currentPage} of {totalPages}</span>
-                <button disabled={currentPage >= totalPages} onClick={() => setPage(page + 1)}>Next</button>
+            <div className="flex gap-10 justify-center">
+                <button disabled={currentPage <= 1} onClick={() => setPage(page - 1)}>Previous </button>
+                <span> Page {currentPage} of {totalPages}</span>
+                <button disabled={currentPage >= totalPages} onClick={() => setPage(page + 1)}> Next</button>
             </div>
         </div>
     );
