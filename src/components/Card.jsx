@@ -17,8 +17,8 @@ const Card = ({ product }) => {
     const handleAddToCart = (product) => {
         const { price, brandName, ratings, category, description, productName, productImage, _id } = product;
 
-        const newCart={
-            price, brandName, ratings, category, description, productName, productImage, _id,email
+        const newCart = {
+            price, brandName, ratings, category, description, productName, productImage, _id, email
         }
 
         if (!user) {
@@ -36,8 +36,8 @@ const Card = ({ product }) => {
                     });
                 }
             });
-            
-            
+
+
     }
 
     return (
