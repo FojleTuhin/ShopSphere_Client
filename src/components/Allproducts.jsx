@@ -63,7 +63,7 @@ const Allproducts = () => {
     return (
         <div>
 
-            <p>Hello</p>
+           
             <div className="my-2 bg-[#f2f2f2] lg:flex justify-between items-center">
                 <p className="px-3 py-2 font-bold text-center">Laptop Price in Bangladesh</p>
 
