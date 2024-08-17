@@ -26,13 +26,7 @@ const Allproducts = () => {
     });
 
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            console.log("Searching ");
-            e.preventDefault();
 
-        }
-    };
 
 
 
@@ -55,7 +49,6 @@ const Allproducts = () => {
 
     return (
         <div>
-            <p>hi</p>
             <div className="my-2 bg-[#f2f2f2] lg:flex justify-between items-center">
                 <p className="px-3 py-2 font-bold text-center">Laptop Price in Bangladesh</p>
 
@@ -64,18 +57,18 @@ const Allproducts = () => {
                     <p className="font-bold text-center mb-2 md:mb-0">Price Range</p>
                     <div className="flex items-center gap-2 py-2 md:py-0 justify-center">
                         <span >Min: </span>
-                        <input onChange={(e) => setMinPrice(e.target.value)} value={minPrice} onKeyDown={handleKeyDown} type="text" placeholder="Add min price" className="px-4 py-3 border-gray-500 border rounded-md" />
+                        <input onChange={(e) => setMinPrice(e.target.value)} value={minPrice} type="text" placeholder="Add min price" className="px-4 py-3 border-gray-500 border rounded-md" />
                     </div>
                     <div className="flex items-center justify-center gap-2">
                         <span >Max: </span>
-                        <input onChange={(e) => setMaxPrice(e.target.value)} value={maxPrice} onKeyDown={handleKeyDown} type="text" placeholder="add max price" className="px-4 py-3 border-gray-500 border rounded-md" />
+                        <input onChange={(e) => setMaxPrice(e.target.value)} value={maxPrice} type="text" placeholder="add max price" className="px-4 py-3 border-gray-500 border rounded-md" />
                     </div>
                 </div>
             </div>
             <div className="my-2 bg-[#f2f2f2] p-2 items-center flex flex-wrap justify-evenly gap-5">
                 <div className="flex items-center gap-2">
                     <span >Search: </span>
-                    <input onChange={(e) => setSearch(e.target.value)} value={search} onKeyDown={handleKeyDown} type="text" placeholder="search by product name" className="px-4 py-3 border-gray-500 border rounded-md" />
+                    <input onChange={(e) => setSearch(e.target.value)} value={search} type="text" placeholder="search by product name" className="px-4 py-3 border-gray-500 border rounded-md" />
                 </div>
 
                 <div className="flex justify-center items-center gap-2">
