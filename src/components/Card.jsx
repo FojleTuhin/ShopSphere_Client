@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../firebase/FirebaseProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useCart from "../hooks/useCart";
 
 const Card = ({ product }) => {
 
@@ -12,6 +13,7 @@ const Card = ({ product }) => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const email = user?.email;
+    const [, refetch] = useCart();
 
 
     const handleAddToCart = (product) => {
@@ -34,6 +36,7 @@ const Card = ({ product }) => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    refetch();
                 }
             });
 

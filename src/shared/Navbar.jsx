@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import logo from '../assets/1.jpg'
 import { AuthContext } from "../firebase/FirebaseProvider";
 import { useContext } from "react";
-import useAxiosPublic from "../hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
+import useCart from "../hooks/useCart";
+
 
 const Navbar = () => {
 
+    const [cart] = useCart();
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
     const links = <>
         <li><a href=""><Link to='/'>Home</Link></a></li>
         <li><a href="">About us</a></li>
@@ -20,17 +20,7 @@ const Navbar = () => {
         <li><a href="">Contact</a></li>
 
     </>
-    const axiosPublic = useAxiosPublic();
-    const email = user?.email;
 
-    const { data: cart = [], refetch } = useQuery({
-        queryKey: ['cart', email],
-        queryFn: async () => {
-            const res = await axiosPublic.get(`/cart/${email}`);
-            return res.data;
-        }
-    })
-    console.log(cart.length);
     const handleSignOut = () => {
 
         logOut()
