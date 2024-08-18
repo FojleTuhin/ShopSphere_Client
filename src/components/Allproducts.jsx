@@ -31,14 +31,13 @@ const Allproducts = () => {
         setMaxPrice(e.target.maxPrice.value);
 
     }
-    const handleSearch =(e)=>{
+    const handleSearch = (e) => {
         e.preventDefault();
         setSearch(e.target.search.value);
 
     }
 
-    console.log(minPrice, maxPrice);
-    console.log(search);
+
 
 
 
@@ -63,7 +62,7 @@ const Allproducts = () => {
     return (
         <div>
 
-           
+
             <div className="my-2 bg-[#f2f2f2] lg:flex justify-between items-center">
                 <p className="px-3 py-2 font-bold text-center">Laptop Price in Bangladesh</p>
 
@@ -162,11 +161,13 @@ const Allproducts = () => {
             </div>
 
 
+
             <div className="flex gap-10 justify-center bg-[#f2f2f2] py-2">
                 <button disabled={currentPage <= 1} onClick={() => setPage(page - 1)}>Previous </button>
                 <span> Page {currentPage} of {totalPages}</span>
                 <button disabled={currentPage >= totalPages} onClick={() => setPage(page + 1)}> Next</button>
             </div>
+
         </div>
     );
 };
